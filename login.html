@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Keeps modal above all other elements */
+        }
+
+        .modal-content {
+            background-color: beige;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(52, 142, 226);
+            
+        }
+
+        .message {
+            margin-top: 15px;
+        }
+
+        .message a {
+            color: rgb(23, 92, 241);
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Close Button */
+        .close-btn {
+    position: absolute;
+    top: 10px; 
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust position relative to its width */
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+        /* Home Page Styling */
+        .home {
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+            position: relative; /* Allows absolute positioning for the search bar */
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #ffffffc8;
+            padding: 8px 15px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .nav a:hover {
+            background-color: #ffffffcb;
+            color: #000;
+        }
+
+        
+
+        /* Section Styling */
+        .section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .container {
+            background-color: #fa86c4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #fd5da8;
+            color: #070707;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+        }
+        .header img {
+            max-width: 100px;
+            height: auto;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            position: relative;
+        }
+        .nav a {
+            color: #ffffffc8;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .nav a:hover {
+            background-color: #ffffffcb;
+            color: #000;
+        }
+        
+        
+        
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: left;
+            flex: 1;
+        }
+        .carousel {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+        }
+        #outerbox {
+            width: 290px;
+            overflow: hidden;
+            position: relative;
+        }
+        #sliderbox {
+            position: relative;
+            width: 8192px;
+            animation-name: slider;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+        }
+        #sliderbox img {
+            width: 300px;
+            height: 400px;
+            float: left;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        @keyframes slider {
+            0% { left: 0px; }
+            11% { left: -310px; }
+            22% { left: -620px; }
+            33% { left: -930px; }
+            44% { left: -1240px; }
+            55% { left: -1550px; }
+            66% { left: -1850px; }
+            77% { left: -2170px; }
+            88% { left: -2485px; }
+            100% { left: -2800px; }
+        }
+        .main-text {
+            width: 60%;
+        }
+        .main-text h3 {
+            font-style: italic;
+        }
+
+        .main-text p {
+            font-style: italic;
+        }
+        .footer {
+            background-color: #550430;
+            color: #ffffffb5;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal Login -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-btn">×</button>
+            <h2>Log-in Form</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p class="message">Don't have an account? <a href="Register.html">Register here!</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="picture/download.png" alt="Purely Plush Logo">
+            <h1>Purely Plush</h1>
+        </div>
+    <div class="nav">
+        <a href="#home">Home</a>
+        <a href="lab7.html">Product</a>
+        <a href="porfolio.html">About</a>
+        <a href="login.html">Log in</a>
+    </div>
+    
+
+    <!-- Main Content Section -->
+    <div class="main">
+        <div class="carousel">
+            <div id="outerbox">
+                <div id="sliderbox">
+                    <img src="picture/image1.jpg" alt="Image 1">
+                    <img src="picture/image2.jpg" alt="Image 2">
+                    <img src="picture/image3.jpg" alt="Image 3">
+                    <img src="picture/image4.jpg" alt="Image 4">
+                    <img src="picture/image5.jpg" alt="Image 5">
+                    <img src="picture/image6.jpg" alt="Image 6">
+                    <img src="picture/image7.jpg" alt="Image 7">
+                    <img src="picture/image8.jpg" alt="Image 8">
+                    <img src="picture/image9.jpg" alt="Image 9">
+                    <img src="picture/image10.jpg" alt="Image 10">
+                </div>
+            </div>
+        </div>
+        <div class="main-text">
+            <h3>WELCOME TO PurelyPlush</h3>
+            <p>Welcome to Purely Plush, where beauty meets care. Our mission is to bring you the finest in skincare, haircare, and body care products, crafted with passion and purity. We believe in the power of nature to nurture and rejuvenate, offering a luxurious yet natural approach to personal care. Dive into our range and discover how we bring plush comfort to your self-care routine.</p>
+        <p>Founded on a commitment to quality and purity, we source only the best ingredients to create products that not only enhance your natural beauty but also care for it. Join us on a journey to healthier, more radiant skin, hair, and body.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy;2024 PurelyPlush All Rights Reserved</p>
+    </div>
+</div>
+
+    <script>
+        const loginModal = document.getElementById("login-modal");
+        const homeSection = document.getElementById("home-section");
+        const loginForm = document.getElementById("login-form");
+        const closeModal = document.getElementById("close-btn");
+
+        // Show the modal on page load
+        window.onload = function () {
+            loginModal.style.display = "flex"; // Display the modal
+        };
+
+        // Hide the modal and show the home page after login
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent actual form submission
+            loginModal.style.display = "none"; // Hide modal
+            homeSection.style.display = "block"; // Show home section
+        });
+
+        // Allow the modal to be closed manually
+        closeModal.addEventListener("click", function () {
+            loginModal.style.display = "none"; // Hide modal
+        });
+    </script>
+</body>
+</html>

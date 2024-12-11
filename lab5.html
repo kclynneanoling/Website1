@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Homepage with Search Bar</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .container {
+            background-color: #fa86c4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #fd5da8;
+            color: #070707;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .header img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* Navigation styles */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1; /* Ensures the links are centered */
+            gap: 15px;
+        }
+
+        .nav a {
+            color: #ffffffc8;
+            padding: 8px 15px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .nav a:hover {
+            background-color: #ffffffcb;
+            color: #000;
+        }
+
+       
+
+        /* Main content styles */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .carousel {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #outerbox {
+            width: 290px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #sliderbox {
+            position: relative;
+            width: 8192px;
+            animation-name: slider;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+        }
+
+        #sliderbox img {
+            width: 300px;
+            height: 350px;
+            float: left;
+            margin-right: 10px;
+            margin-top: 0;
+        }
+
+        @keyframes slider {
+            0% { left: 0px; }
+            11% { left: -310px; }
+            22% { left: -620px; }
+            33% { left: -930px; }
+            44% { left: -1240px; }
+            55% { left: -1550px; }
+            66% { left: -1850px; }
+            77% { left: -2170px; }
+            88% { left: -2485px; }
+            100% { left: -2800px; }
+        }
+
+        .main-text {
+            width: 60%;
+        }
+
+        .main-text h3 {
+            font-style: italic;
+        }
+
+        .main-text p {
+            font-style: italic;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #550430;
+            color: #ffffffb5;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="picture/download.png" alt="Purely Plush Logo">
+            <h1>Purely Plush</h1>
+        </div>
+        
+        <!-- Navigation Bar -->
+        <div class="nav">
+            <div class="nav-links">
+                <a href="lab5.html">Home</a>
+                <a href="lab7.html">Product</a>
+                <a href="portfolio.html">About</a>
+                <a href="login.html">Log in</a>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main">
+            <div class="carousel">
+                <div id="outerbox">
+                    <div id="sliderbox">
+                        <img src="picture/image1.jpg" alt="Image 1">
+                        <img src="picture/image2.jpg" alt="Image 2">
+                        <img src="picture/image3.jpg" alt="Image 3">
+                        <img src="picture/image4.jpg" alt="Image 4">
+                        <img src="picture/image5.jpg" alt="Image 5">
+                        <img src="picture/image6.jpg" alt="Image 6">
+                        <img src="picture/image7.jpg" alt="Image 7">
+                        <img src="picture/image8.jpg" alt="Image 8">
+                        <img src="picture/image9.jpg" alt="Image 9">
+                        <img src="picture/image10.jpg" alt="Image 10">
+                    </div>
+                </div>
+            </div>
+            <div class="main-text">
+                <h3>Welcome to Purely Plush</h3>
+                <p>Welcome to Purely Plush, where beauty meets care. Our mission is to bring you the finest in skincare, haircare, and body care products, crafted with passion and purity. We believe in the power of nature to nurture and rejuvenate, offering a luxurious yet natural approach to personal care. Dive into our range and discover how we bring plush comfort to your self-care routine.</p>
+                <p>Founded on a commitment to quality and purity, we source only the best ingredients to create products that not only enhance your natural beauty but also care for it. Join us on a journey to healthier, more radiant skin, hair, and body.</p>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>&copy;2024 Purely Plush All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>
