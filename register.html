@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Keeps modal above all other elements */
+        }
+
+        .modal-content {
+            background-color: beige;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color:green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(144, 177, 238);
+        }
+
+        .message {
+            margin-top: 15px;
+        }
+
+        .message a {
+            color: rgb(23, 92, 241);
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Home Page Styling */
+        .home {
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Section Styling */
+        .section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        /* General Body Styles */
+body {
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    min-height: 100vh; /* Ensure body takes full screen height */
+    display: flex;
+    flex-direction: column; /* Flexbox to make layout easier */
+}
+
+/* Container Styles */
+.container {
+    background-color: #e2d0b5;
+    flex-grow: 1; /* Allow the content to grow and push footer to the bottom */
+}
+
+/* Header Styles */
+.header {
+            background-color: #fd5da8;
+            color: #070707;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            position: relative;
+        }
+        .nav a {
+            color: #ffffffc8;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .nav a:hover {
+            background-color: #ffffffcb;
+            color: #000;
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 13px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fd5da8;
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .dropdown-content a {
+            color: #000;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: left;
+            flex: 1;
+        }
+        .carousel {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+        }
+        #outerbox {
+            width: 290px;
+            overflow: hidden;
+            position: relative;
+        }
+        #sliderbox {
+            position: relative;
+            width: 8192px;
+            animation-name: slider;
+            animation-duration: 30s;
+            animation-iteration-count: infinite;
+        }
+        #sliderbox img {
+            width: 300px;
+            height: 400px;
+            float: left;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        @keyframes slider {
+            0% { left: 0px; }
+            11% { left: -310px; }
+            22% { left: -620px; }
+            33% { left: -930px; }
+            44% { left: -1240px; }
+            55% { left: -1550px; }
+            66% { left: -1850px; }
+            77% { left: -2170px; }
+            88% { left: -2485px; }
+            100% { left: -2800px; }
+        }
+        .main-text {
+            width: 60%;
+        }
+        .footer {
+            background-color: #550430;
+            color: #ffffffb5;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #e2d0b5;
+    flex-grow: 1;
+}
+
+.header {
+            background-color: #fd5da8;
+            color: #070707;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .header img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.nav a {
+    color: #ffffffc8;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: #ffffffcb;
+    color: #000;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.carousel {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+#outerbox {
+    width: 290px;
+    overflow: hidden;
+    position: relative;
+}
+
+#sliderbox {
+    position: relative;
+    width: 8192px;
+    animation-name: slider;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+#sliderbox img {
+    width: 300px;
+    height: 400px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+@keyframes slider {
+    0% { left: 0px; }
+    11% { left: -310px; }
+    22% { left: -620px; }
+    33% { left: -930px; }
+    44% { left: -1240px; }
+    55% { left: -1550px; }
+    66% { left: -1850px; }
+    77% { left: -2170px; }
+    88% { left: -2485px; }
+    100% { left: -2800px; }
+}
+
+.main-text {
+    width: 60%;
+}
+
+.footer {
+    background-color: #550430;
+    color: #ffffffb5;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: beige;
+    padding: 30px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(22, 18, 238);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(144, 177, 238);
+}
+
+.message {
+    margin-top: 15px;
+}
+
+.message a {
+    color: rgb(23, 92, 241);
+    text-decoration: none;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* Align input fields vertically with labels */
+    gap: 10px; /* Add space between the label and input box */
+}
+
+label {
+    display: block;
+    margin: 0; /* Reset any default margin */
+    width: 100px; /* Fixed width for consistent alignment */
+    text-align: left; /* Ensure label text aligns left */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    flex: 1; /* Allow input fields to stretch to fill space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left; /* Align text inside input to the left */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Modal Login -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <h2>Registration</h2>
+      
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="birthdate">Birthdate</label>
+              <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="save-button">Save</button>
+            <p class="message">Already have an account? <a href="login.html">Log in</a></p>
+          </form>
+        </div>
+    </div>
+
+   
+
+    <div class="container">
+        <div class="header">
+            
+            <div class="container">
+                <!-- Header Section -->
+                <div class="header">
+                    <img src="picture/download.png" alt="Purely Plush Logo">
+                    <h1>Purely Plush</h1>
+                </div>
+                
+                <!-- Navigation Bar -->
+                <div class="nav">
+                    <a href="#home">Home</a>
+                    <a href="lab7.html">Product</a>
+                    <a href="porfolio.html">About</a>
+                    <a href="login.html">Log in</a>
+                </div>
+        
+                <!-- Main Content Section -->
+                <div class="main">
+                    <div class="carousel">
+                        <div id="outerbox">
+                            <div id="sliderbox">
+                                <img src="picture/image1.jpg" alt="Image 1">
+                                <img src="picture/image2.jpg" alt="Image 2">
+                                <img src="picture/image3.jpg" alt="Image 3">
+                                <img src="picture/image4.jpg" alt="Image 4">
+                                <img src="picture/image5.jpg" alt="Image 5">
+                                <img src="picture/image6.jpg" alt="Image 6">
+                                <img src="picture/image7.jpg" alt="Image 7">
+                                <img src="picture/image8.jpg" alt="Image 8">
+                                <img src="picture/image9.jpg" alt="Image 9">
+                                <img src="picture/image10.jpg" alt="Image 10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-text">
+                        <h3>Welcome to PurelyPlush</h3>
+                        <p>Welcome to Purely Plush, where beauty meets care. Our mission is to bring you the finest in skincare, haircare, and body care products, crafted with passion and purity. We believe in the power of nature to nurture and rejuvenate, offering a luxurious yet natural approach to personal care. Dive into our range and discover how we bring plush comfort to your self-care routine.</p>
+                    <p>Founded on a commitment to quality and purity, we source only the best ingredients to create products that not only enhance your natural beauty but also care for it. Join us on a journey to healthier, more radiant skin, hair, and body.</p>
+                    </div>
+                </div>
+        
+                <!-- Footer Section -->
+                <div class="footer">
+                    <p>&copy;2024 PurelyPlush All Rights Reserved</p>
+                </div>
+    
+
+    <script>
+        const loginModal = document.getElementById("login-modal");
+        const homeSection = document.getElementById("home-section");
+        const loginForm = document.getElementById("login-form");
+        const closeModal = document.getElementById("close-btn");
+
+        // Show the modal on page load
+        window.onload = function () {
+            loginModal.style.display = "flex"; // Display the modal
+        };
+
+        // Hide the modal and show the home page after login
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent actual form submission
+            loginModal.style.display = "none"; // Hide modal
+            homeSection.style.display = "block"; // Show home section
+        });
+
+        // Allow the modal to be closed manually
+        closeModal.addEventListener("click", function () {
+            loginModal.style.display = "none"; // Hide modal
+        });
+    </script>
+</body>
+</html>
